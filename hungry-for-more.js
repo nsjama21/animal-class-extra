@@ -1,8 +1,8 @@
 class BankAccount {
-    constructor(ownerNameParam, balanceParam, acctNumParam) {
+    constructor(ownerNameParam, balanceParam) {
         this.ownerName = ownerNameParam
         this.balance = balanceParam
-        this.acctNum = acctNumParam
+        this.acctNum = Math.floor(Math.random() * 50000)
     }
 
     deposit(amountDeposited) {
@@ -16,8 +16,8 @@ class BankAccount {
 }
 
 class CheckingAccount extends BankAccount {
-    constructor(ownerNameParam, balanceParam, acctNumParam) {
-        super(ownerNameParam, balanceParam, acctNumParam)
+    constructor(ownerNameParam, balanceParam) {
+        super(ownerNameParam, balanceParam)
 
         this.overdraftEnabled = true || false
     }
@@ -28,8 +28,8 @@ class CheckingAccount extends BankAccount {
 }
 
 class SavingsAccount extends BankAccount {
-    constructor(ownerNameParam, balanceParam, acctNumParam) {
-        super(ownerNameParam, balanceParam, acctNumParam)
+    constructor(ownerNameParam, balanceParam) {
+        super(ownerNameParam, balanceParam)
 
     }
 
@@ -38,13 +38,13 @@ class SavingsAccount extends BankAccount {
     }
 }
 
-const bobbieCheckingAccount = new CheckingAccount("Bobbie", "600", "622222555555")
+const bobbieCheckingAccount = new CheckingAccount("Bobbie", "600")
 
 console.log(bobbieCheckingAccount)
 bobbieCheckingAccount.deposit("2000")
 bobbieCheckingAccount.withdraw()
 
-const robertaSavingsAccount = new SavingsAccount("Roberta", "35000", "21212125554")
+const robertaSavingsAccount = new SavingsAccount("Roberta", "35000")
 
 console.log(robertaSavingsAccount)
 robertaSavingsAccount.withdraw()
